@@ -214,3 +214,43 @@ exit
 umount -R /mnt
 
 reboot
+
+# Wifi Connection
+
+systemctl enable connman.service
+
+systemctl start connman.service
+
+connmanctl
+
+```
+connmanctl > scan wifi
+
+connmanctl > services
+
+connmanctl > agent on
+
+connmanctl > connect wifi_xxx_xxx_manageed_psk
+*Enter wifi password
+
+quit
+```
+# Zsh->Prezto Installation
+
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+
+ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+
+ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+
+ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
+
+ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+
+ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc
+
+chsh -s /bin/zsh
+
+reboot
